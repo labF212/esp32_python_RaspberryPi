@@ -27,14 +27,6 @@ void handle_OnConnect() {
   server.send(200, "text/plain", temperatura+"e"+umidade);  // 70.0e23.0
 }
 
-void receive_OnConnect(){
-  String message = "Obrigado\n";
-  server.send(404, "text/plain", message);
-  //server.receive(404, "text/plain", message);
-}
-
-
-
 void handle_NotFound(){
   String message = "File Not Found\n";
   server.send(404, "text/plain", message);
@@ -50,7 +42,6 @@ void setup() {
   delay(100);
   
   server.on("/", handle_OnConnect);
-  server.on("/receber", receive_OnConnect);
   server.onNotFound(handle_NotFound);
   
   server.begin();
@@ -58,6 +49,6 @@ void setup() {
 }
 void loop() {
   server.handleClient();
-  
+  delay(1000)
  
 }
