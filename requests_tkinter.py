@@ -14,7 +14,7 @@ while 1:
             
         #date_string = strftime("%d %B %Y") dia mes ano
         date_month = strftime("%B")
-        months_eng =   ["Jannuary",
+        months_eng =   ["January",
                         "February",
                         "March",
                         "April",
