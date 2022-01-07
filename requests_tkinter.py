@@ -1,55 +1,53 @@
-from PyQt5 import  uic,QtWidgets
 import requests
-#import time
 import threading
 from tkinter import *
 from time import *
 
-global conection
-
 def update():
-    #ver tabela de letras que correspodem ao formato do relógio
-    #https://www.programiz.com/python-programming/datetime/strftime
-    time_string = strftime("%H:%M:%S")
-    time_label.config(text=time_string)
-    
+while 1:
+        sleep(1)
+        #ver tabela de letras que correspodem ao formato do relógio
+        #https://www.programiz.com/python-programming/datetime/strftime
+        time_string = strftime("%H:%M:%S")
+        time_label.config(text=time_string)
         
-    #date_string = strftime("%d %B %Y") dia mes ano
-    date_month = strftime("%B")
-    months_eng =   ["Jannuary",
-                    "February",
-                    "March",
-                    "April",
-                    "May",
-                    "June",
-                    "July",
-                    "August",
-                    "September",
-                    "October",
-                    "November",
-                    "December"]
-    meses_pt = ["Janeiro",
-                "Fevereiro",
-                "Março",
-                "Abril",
-                "Maio",
-                "Junho",
-                "Julho",
-                "Agosto",
-                "Setembro",
-                "Outubro",
-                "Novembro",
-                "Dezembro"]
-    
-    months_day_len = len (months_eng)
-    
-    for f in range (0,months_day_len):
-        if date_month == months_eng[f]:
-            date_month = meses_pt[f]
             
-    date_string = strftime("%d ") + date_month + strftime(" %Y")
-    
-    date_label.config(text=date_string)
+        #date_string = strftime("%d %B %Y") dia mes ano
+        date_month = strftime("%B")
+        months_eng =   ["Jannuary",
+                        "February",
+                        "March",
+                        "April",
+                        "May",
+                        "June",
+                        "July",
+                        "August",
+                        "September",
+                        "October",
+                        "November",
+                        "December"]
+        meses_pt = ["Janeiro",
+                    "Fevereiro",
+                    "Março",
+                    "Abril",
+                    "Maio",
+                    "Junho",
+                    "Julho",
+                    "Agosto",
+                    "Setembro",
+                    "Outubro",
+                    "Novembro",
+                    "Dezembro"]
+        
+        months_day_len = len (months_eng)
+        
+        for f in range (0,months_day_len):
+            if date_month == months_eng[f]:
+                date_month = meses_pt[f]
+                
+        date_string = strftime("%d ") + date_month + strftime(" %Y")
+        
+        date_label.config(text=date_string)
 
 def atualiza_dados():
     while 1:
@@ -118,7 +116,5 @@ time_label.grid(row=8,column=0,columnspan=2, sticky=N, padx=10, pady=10)
 
 threading.Thread(target=atualiza_dados).start()
 threading.Thread(target=update).start()
-#update()
-
 
 window.mainloop()
